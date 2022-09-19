@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Bash script that uses ssh to connect to server
+# Uses private key '~/.ssh/holberton', user 'ubuntu'
+
+ssh -i ~/.ssh/holberton ubuntu@34.138.92.34
