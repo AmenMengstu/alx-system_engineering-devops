@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-#to configure a new server
-
-sudo apt-get update
-sudo apt-get -y install nginx
-sudo service nginx start
-sudo sed -i "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
-echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
-sudo service nginx restart
+# installs nginx
+apt-get -y update
+apt-get -y install nginx
+echo "amenech" > /var/www/html/index.nginx-debian.html
+sed -i "/server_name _;/ a\\\trewrite ^/redirect_me http://www.holbertonschool.com permanent;" /etc/nginx/sites-available/default
+sed -i "/server_name _;/ a\\\tadd_header X-Served-By \"\$HOSTNAME\";" /etc/nginx/sites-available/default
+sed -i "/redirect_me/ a\\\terror_page 404 /custom_404.html;" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+service nginx start
