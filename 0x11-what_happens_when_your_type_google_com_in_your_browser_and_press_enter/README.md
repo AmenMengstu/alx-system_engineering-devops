@@ -13,5 +13,4 @@ The post will cover the relationship between:
 - Server processes request and sends back a response
 - Browser renders the content
 ## Blog Post URL:
-[Medium](https://medium.com/@zyambo/what-happens-when-you-type-www-google-com-in-your-browser-and-press-enter-7554fa2dd5ea)
-[LinkedIn](https://www.linkedin.com/posts/sangwani-pz_what-happens-when-you-type-wwwgooglecom-activity-6918833535160041472-WaUQ?utm_source=linkedin_share&utm_medium=member_desktop_web)
+
