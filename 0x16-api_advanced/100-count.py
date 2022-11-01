@@ -3,8 +3,8 @@
 import requests
 
 
-def number_of_subscribers(subreddit):
-    """Return the total number of subscribers on a given subreddit."""
+def count_words(subreddit, word_list):
+    """prints a sorted count of given keywords"""
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {
         "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/edev_)"
