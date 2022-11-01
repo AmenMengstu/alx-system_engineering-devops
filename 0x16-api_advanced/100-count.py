@@ -1,18 +1,16 @@
 #!/usr/bin/python3
-""" recursive function that queries the Reddit API"""
+"""Function to query subscribers on a given Reddit subreddit."""
 import requests
-import sys
-after = None
-count_dic = []
 
 
-def count_words(subreddit, word_list):
-    """parses the title of all hot articles, and prints a sorted count of given
-    keywords (case-insensitive, delimited by spaces) """
-    global after
-    global count_dic
-    headers = {'User-Agent': 'xica369'}
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    parameters = {'after': after}
-    response = requests.get(url, headers=headers, allow_redirects=False,
-                            params=parameters)
+def number_of_subscribers(subreddit):
+    """Return the total number of subscribers on a given subreddit."""
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/edev_)"
+    }
+    response = requests.get(url, headers=headers, allow_redirects=False)
+    if response.status_code == 404:
+        return 0
+    results = response.json().get("data")
+    return results.get("subscribers")
